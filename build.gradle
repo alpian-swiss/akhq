@@ -331,6 +331,9 @@ shadowJar {
 publishing {
     publications {
         mavenJava(MavenPublication) {
+            // Our own group: these are not upstream's bytes, so they must not claim
+            // upstream's org.akhq coordinate.
+            groupId = 'com.alpian'
             // the fat jar is the one and only artifact, published without the "all" classifier
             artifact(tasks.shadowJar) {
                 classifier = null
